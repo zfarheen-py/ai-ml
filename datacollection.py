@@ -34,8 +34,12 @@ while True:
             xmin, xmax = min(x_list), max(x_list)
             ymin, ymax = min(y_list), max(y_list)
 
+            # padding = 20
+            x1, y1 = max(xmin - 20, 0), max(ymin - 20, 0)
+            x2, y2 = min(xmax + 20, w), min(ymax + 20, h)            
+
             # draws rectangle around hand
-            cv2.rectangle(frame, (xmin - 20, ymin - 20), (xmax + 20, ymax + 20), (0, 255, 0), 2)
+            cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
 
             # displays the hand label
             cv2.putText(frame, handedness, (xmin, ymin - 30),
